@@ -1,0 +1,31 @@
+plugins {
+    id "net.fabricmc.fabric-loom" version "${loom_version}"
+}
+
+version = mod_version
+group = maven_group
+
+base {
+    archivesName = "invisiblekill"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${loader_version}"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 25
+    options.encoding = "UTF-8"
+}
+
+processResources {
+    inputs.property "mod_version", project.version
+    filesMatching("fabric.mod.json") {
+        expand(mod_version: project.version)
+    }
+}

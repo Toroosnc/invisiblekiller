@@ -1,0 +1,10 @@
+{
+  "required": true,
+  "package": "com.example.invisiblekill.mixin",
+  "mixins": [
+    "CombatTrackerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
